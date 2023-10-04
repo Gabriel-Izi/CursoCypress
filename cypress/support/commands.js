@@ -35,10 +35,10 @@ Cypress.Commands.add('clickAlert', (locator, message) => {
 })
 
 Cypress.Commands.add('login', (user, passwd) => {
-    cy.visit('http://barrigareact.wcaquino.me')
-        cy.get(loc.LOGIN.USER).type(user)
-        cy.get(loc.LOGIN.PASSWORD).type(passwd)
-        cy.get(loc.LOGIN.BTN_LOGIN).click()
+    cy.visit('https://barrigareact.wcaquino.me/')
+    cy.get(loc.LOGIN.USER).type(user)
+    cy.get(loc.LOGIN.PASSWORD).type(passwd)
+    cy.get(loc.LOGIN.BTN_LOGIN).click()
 })
 
 Cypress.Commands.add('resetApp', () => {
@@ -56,9 +56,9 @@ Cypress.Commands.add('getToken', (user, passwd)=>{
             senha: passwd
         }
     }).its('body.token').should('not.be.empty')
-    .then(token =>{
-        Cypress.env('token', token)
-        return token
+        .then(token =>{
+            Cypress.env('token', token)
+            return token
     })
 })
 

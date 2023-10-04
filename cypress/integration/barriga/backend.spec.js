@@ -82,14 +82,14 @@ describe('Should test at functional level', () => {
         cy.get('@response').its('body.id').should('exist')   
     })
 
-    it.only('Should get balance', ()=>{
+    it('Should get balance', ()=>{
         cy.request({
             method: 'GET',
             url: '/transacoes',
             qs: { descricao: 'Movimentacao 1, calculo saldo' }
         }).then(res =>{
             cy.request({
-                url: `/transacoes/${res.body[0].id}}`,
+                url: `/transacoes/${res.body[0].id}`,
                 method: 'PUT',
                 body: {
                     status: true,
